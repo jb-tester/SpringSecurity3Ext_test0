@@ -1,0 +1,4 @@
+org.thymeleaf.extras.springsecurity3.auth
+org.thymeleaf.extras.springsecurity3.dialect
+org.thymeleaf.extras.springsecurity3.dialect.processor
+org.thymeleaf.extras.springsecurity3.util
