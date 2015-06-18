@@ -4,6 +4,16 @@
        xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
        <security:authentication-manager id="authManager">
-
+          <security:authentication-provider>
+                 <security:user-service>
+                        <security:user name="irina" authorities="ROLE_ADMIN, ROLE_USER" password="jolt"/>
+                        <security:user name="tester" authorities="ROLE_USER" password="tester"/>
+                 </security:user-service>
+          </security:authentication-provider>
        </security:authentication-manager>
+       <security:http authentication-manager-ref="authManager" auto-config="true" use-expressions="true">
+           <security:intercept-url pattern="/test" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
+           <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+       </security:http>
+       <security:debug/>
 </beans>
