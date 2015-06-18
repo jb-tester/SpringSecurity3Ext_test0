@@ -7,6 +7,13 @@
         <element id="directory" name="classes">
           <element id="module-output" name="SpringSecurity3Ext_test0" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="Thymeleaf_2.1.4" module-name="SpringSecurity3Ext_test0" />
+          <element id="library" level="module" name="spring4.11" module-name="SpringSecurity3Ext_test0" />
+          <element id="library" level="module" name="SpringMVC_4.1" module-name="SpringSecurity3Ext_test0" />
+          <element id="library" level="module" name="spring_security3.2" module-name="SpringSecurity3Ext_test0" />
+          <element id="library" level="module" name="thymeleaf-extras-springsecurity3" module-name="SpringSecurity3Ext_test0" />
+        </element>
       </element>
     </root>
   </artifact>
