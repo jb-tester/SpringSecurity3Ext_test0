@@ -8,6 +8,7 @@
                  <security:user-service>
                         <security:user name="irina" authorities="ROLE_ADMIN, ROLE_USER" password="jolt"/>
                         <security:user name="tester" authorities="ROLE_USER" password="tester"/>
+                        <security:user name="admin" authorities="ROLE_ADMIN" password="admin"/>
                  </security:user-service>
           </security:authentication-provider>
        </security:authentication-manager>
