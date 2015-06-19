@@ -8,11 +8,15 @@
 <h1> test </h1>
 <p th:text="${testattr1}"></p>
 <p th:text="'You have logged in as '+${#authentication.getName()+', with roles: '}">list name and roles here </p>
-<div th:each="user_role: ${#authentication.getAuthorities()}">
-    <p th:text="${user_role.toString()}">user role</p>
+<div th:each="user_role: ${#authentication.authorities}">
+    <p th:text="${user_role.authority}">user role</p> <!--/* parsing error; idea-141678 */-->
 </div>
+<!--<div th:each="user_role1: ${#authorization.authentication.authorities}">
+    <p th:text="${user_role1.authority}">user role</p> &lt;!&ndash;/* parsing error; idea-141678 */&ndash;&gt;
+</div>-->
+
 <p sec:authorize="hasRole('ROLE_ADMIN')" th:text="'only admins can see this message '"></p>
-<div th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}"> <!-- parsing error; idea-141643 --->
+<div th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}"> <!--/* parsing error; idea-141643 */-->
     only valid users can see this message
 </div>
 </body>
