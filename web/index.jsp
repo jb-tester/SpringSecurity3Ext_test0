@@ -12,6 +12,6 @@
   </head>
   <body>
   <a href="test">start</a>
-  <a href="admin">admin</a>
+  <a href="admin/p1">admin</a>
   </body>
 </html>

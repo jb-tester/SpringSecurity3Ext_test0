@@ -16,6 +16,14 @@
 </div>-->
 
 <p sec:authorize="hasRole('ROLE_ADMIN')" th:text="'only admins can see this message '"></p>
+
+<div sec:authorize-expr="hasAnyAuthority('ROLE_USER','ROLE_ADMIN')">
+    test sec:authorize-expr="hasAnyAuthority('ROLE_USER','ROLE_ADMIN')"
+</div>
+<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
+    test sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')"
+</div>
+
 <div th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}"> <!--/* parsing error; idea-141643 */-->
     only valid users can see this message
 </div>
