@@ -12,5 +12,6 @@
   </head>
   <body>
   <a href="test">start</a>
+  <a href="admin">admin</a>
   </body>
 </html>
