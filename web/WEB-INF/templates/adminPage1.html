@@ -6,7 +6,7 @@
 </head>
 <body>
  hello!
- <p sec:authentication="principal"/>
+ <p sec:authentication="principal.username"/>
 <div sec:authorize-expr="hasIpAddress('127.0.0.0/2') and #httpServletRequest.getLocalPort()==8080">
    spring el in sec:authorize-expression
 </div>
