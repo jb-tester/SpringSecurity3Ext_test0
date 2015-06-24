@@ -6,13 +6,24 @@
 </head>
 <body>
  hello!
-
-<div sec:authorize-expr="${hasIpAddress('127.0.0.0/2') and #httpServletRequest.getLocalPort()==8080}">
-   <p th:text="${'your port is: ' +#httpServletRequest.getLocalPort()}"/>
+ <p sec:authentication="principal"/>
+<div sec:authorize-expr="hasIpAddress('127.0.0.0/2') and #httpServletRequest.getLocalPort()==8080">
+   spring el in sec:authorize-expression
 </div>
- <div sec:authorize="${hasRole(#vars.roleName)}">
-     <p th:text="'your role is: '+${roleName}"/>
+ <div sec:authorize="${hasAnyRole(@utils.roles) and @utils.flag}">
+     test sec:authorize with thymeleaf-style expression
  </div>
+
+ <div sec:authorize="hasAnyRole(@utils.users.![user_role])">
+     test sec:authorize with normal spring el expression
+ </div>
+ <!--<div sec:authorize="hasRole(roleName)">
+     attempt to access modelattribute 'roleName' directly, without #vars
+ </div>-->
+ <div sec:authorize="hasRole(#vars.roleName)">
+     attempt to access modelattribute 'roleName' via #vars
+ </div>
+
  <div sec:authorize-url="GET /foo">
      +++++++++++++++++++++++++++++++
  </div>

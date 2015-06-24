@@ -17,4 +17,26 @@
            <security:intercept-url pattern="/admin/**" access="hasIpAddress('127.0.0.1') and hasRole('ROLE_ADMIN')"/>
        </security:http>
        <security:debug/>
+       <bean id="utils" class="mytests.thymeleaf.spring.springsecurityext.utils.UtilsBean">
+           <property name="flag" value="true"/>
+           <property name="roles">
+               <array>
+                   <value>ROLE_FOO</value>
+                   <value>ROLE_USER</value>
+                   <value>ROLE_ADMIN</value>
+               </array>
+           </property>
+           <property name="users">
+               <list>
+                   <bean class="mytests.thymeleaf.spring.springsecurityext.utils.User">
+                       <property name="user_name" value="user1"/>
+                       <property name="user_role" value="ROLE_ADMIN"/>
+                   </bean>
+                   <bean class="mytests.thymeleaf.spring.springsecurityext.utils.User">
+                       <property name="user_name" value="user2"/>
+                       <property name="user_role" value="ROLE_USER"/>
+                   </bean>
+               </list>
+           </property>
+       </bean>
 </beans>
